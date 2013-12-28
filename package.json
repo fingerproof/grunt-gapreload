@@ -1,0 +1,25 @@
+{
+	"private": true,
+	"name": "grunt-gapreload",
+	"version": "0.1.0",
+	"description": "A Grunt tasks for the Cordova/PhoneGap GapReload plugin.",
+	"author": "fingerproof",
+	"license": "MIT",
+	"homepage": "https://github.com/fingerproof/grunt-gapreload",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/fingerproof/grunt-gapreload.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fingerproof/grunt-gapreload/issues"
+	},
+	"peerDependencies": {
+		"grunt": "~0.4.2",
+		"grunt-contrib-watch": "~0.5.3"
+	},
+	"dependencies": {
+		"grunt-concurrent": "~0.4.2",
+		"grunt-exec": "~0.4.2",
+		"register-grunt-sub-tasks": "fingerproof/register-grunt-sub-tasks"
+	}
+}
