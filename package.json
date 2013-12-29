@@ -15,11 +15,11 @@
 	},
 	"peerDependencies": {
 		"grunt": "~0.4.2",
-		"grunt-contrib-watch": "~0.5.3"
+		"grunt-concurrent": "~0.4.2",
+		"grunt-contrib-watch": "~0.5.3",
+		"grunt-exec": "~0.4.2"
 	},
 	"dependencies": {
-		"grunt-concurrent": "~0.4.2",
-		"grunt-exec": "~0.4.2",
 		"register-grunt-sub-tasks": "fingerproof/register-grunt-sub-tasks"
 	}
 }
