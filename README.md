@@ -82,6 +82,12 @@ For example: `$ grunt gapreload-add:192.168.0.10:8888 gapreload-prepare:ios:andr
 
 Parameters are accessed in the following order: **Per task > `gapreload.options[name]` > default value**. The only exeption to this rule is the `LIVERELOAD_PORT` variable which can also get its value from `watch.gapreload.options.livereload` (see the [grunt-contrib-watch][grunt-contrib-watch] documentation for more informations).
 
+## Usage
+
+1. `cd` into your Cordova app folder previously created using the `cordova create` command.
+2. Execute for example `$ grunt gapreload-add:192.168.0.10` once so that the plugin is installed.
+3. Follow GapReload usage instructions in your terminal window and you will be good to go.
+
 ## Notes
 
 - Installing *grunt-gapreload* will also install *grunt*, *grunt-contrib-watch*, *[grunt-concurrent][grunt-concurrent]* and *[grunt-exec][grunt-exec]* as *[peerDependencies][peerDependencies]*.
