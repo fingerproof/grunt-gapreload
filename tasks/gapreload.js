@@ -14,11 +14,15 @@ function cordova (command, format) {
 
 function add (format, _) {
 	var url = "https://github.com/fingerproof/cordova-plugin-gapreload";
-	return cordova("plugin add " + url, function formatter (params, config, grunt) {
+	var command = "plugin add " + url;
+	return cordova(command, function formatter (params, config, grunt) {
 		return format(variables, function separator (key, index) {
 			var value = params[index] || config(key);
+			// `variables[3]` equals `"LIVERELOAD_PORT"`
 			if (key === variables[3] && !value) {
 				var port = grunt.config("watch.gapreload.options.livereload");
+				// according to the doc, this can be a boolean, a number
+				// or an object containing a `port` key storing a number
 				if (_.isPlainObject(port)) { port = port.port; }
 				if (_.isNumber(port)) { value = port; }
 			}
@@ -29,12 +33,15 @@ function add (format, _) {
 
 function serve (format) {
 	return cordova("serve", function formatter (params, config) {
+		// `variables[1]` equals `"SERVER_PORT"`
 		return format.shell(params[0] || config(variables[1]));
 	});
 }
 
 function watch () {
 	var task = {
+		// sadly, grunt-concurrent is not designed to dynamically
+		// pass arguments to the tasks it runs, maybe someday?
 		tasks: ["gapreload-serve", "watch:gapreload"],
 		options: { logConcurrentOutput: true }
 	};
@@ -46,12 +53,17 @@ function remove () {
 	return cordova("plugin remove pro.fing.cordova.gapreload", noop);
 }
 
-function prepare (format) { return cordova("prepare", format.shell); }
+function prepare (format) {
+	return cordova("prepare", function formatter (params, config) {
+		return format.shell(params.length ? params : config("platforms"));
+	});
+}
 
 function gapreload (format) {
 	function task (config, grunt) {
 		return function () {
 			var params = format.grunt(arguments);
+			// pass `params` to gapreload-watch even if it won't handle them
 			var tasks = register.unpack("add watch", "gapreload-$1" + params);
 			grunt.task.run(tasks);
 		};
