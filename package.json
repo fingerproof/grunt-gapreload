@@ -1,12 +1,13 @@
 {
   "name": "grunt-gapreload",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Grunt tasks for the Cordova/PhoneGap GapReload plugin.",
   "keywords": [
     "grunt",
     "gruntplugin",
     "cordova",
     "phonegap",
+    "plugin",
     "live",
     "reload",
     "livereload",

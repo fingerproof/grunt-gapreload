@@ -1,7 +1,8 @@
 /*jshint node:true */
 
 var register = require('register-grunt-sub-tasks');
-var variables = register.unpack('SERVER LIVERELOAD', '$1_HOST $1_PORT');
+var ID = 'pro.fing.cordova.gapreload';
+var VARIABLES = register.unpack('SERVER LIVERELOAD', '$1_HOST $1_PORT');
 
 function cordova(command, format) {
   command = 'cordova ' + command;
@@ -13,13 +14,12 @@ function cordova(command, format) {
 }
 
 function add(format, _) {
-  var url = 'https://github.com/fingerproof/cordova-plugin-gapreload';
-  var command = 'plugin add ' + url;
+  var command = 'plugin add ' + ID;
   return cordova(command, function formatter(params, config, grunt) {
-    return format(variables, function separator(key, index) {
+    return format(VARIABLES, function separator(key, index) {
       var value = params[index] || config(key);
-      // `variables[3]` equals `"LIVERELOAD_PORT"`.
-      if (key === variables[3] && !value) {
+      // `VARIABLES[3]` equals `"LIVERELOAD_PORT"`.
+      if (key === VARIABLES[3] && !value) {
         var port = grunt.config('watch.gapreload.options.livereload');
         // According to the doc, this can be a boolean, a number
         // or an object containing a `port` key storing a number.
@@ -33,8 +33,8 @@ function add(format, _) {
 
 function serve(format) {
   return cordova('serve', function formatter(params, config) {
-    // `variables[1]` equals `"SERVER_PORT"`.
-    return format.shell(params[0] || config(variables[1]));
+    // `VARIABLES[1]` equals `"SERVER_PORT"`.
+    return format.shell(params[0] || config(VARIABLES[1]));
   });
 }
 
@@ -49,8 +49,7 @@ function watch() {
 }
 
 function remove() {
-  function noop() { return ''; }
-  return cordova('plugin remove pro.fing.cordova.gapreload', noop);
+  return cordova('plugin remove ' + ID, function noop() { return ''; });
 }
 
 function prepare(format) {
