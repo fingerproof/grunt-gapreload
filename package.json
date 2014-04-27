@@ -2,7 +2,17 @@
   "name": "grunt-gapreload",
   "version": "1.0.0",
   "description": "A Grunt tasks for the Cordova/PhoneGap GapReload plugin.",
-  "keywords": ["grunt", "cordova", "phonegap", "live", "reload", "GapReload"],
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "cordova",
+    "phonegap",
+    "live",
+    "reload",
+    "livereload",
+    "GapReload",
+    "dev"
+  ],
   "author": "Sebastien Pittion (https://twitter.com/fingerproof)",
   "license": "MIT",
   "homepage": "https://github.com/fingerproof/grunt-gapreload",
