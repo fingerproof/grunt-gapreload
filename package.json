@@ -1,25 +1,25 @@
 {
-	"private": true,
-	"name": "grunt-gapreload",
-	"version": "0.1.0",
-	"description": "A Grunt tasks for the Cordova/PhoneGap GapReload plugin.",
-	"author": "fingerproof",
-	"license": "MIT",
-	"homepage": "https://github.com/fingerproof/grunt-gapreload",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/fingerproof/grunt-gapreload.git"
-	},
-	"bugs": {
-		"url": "https://github.com/fingerproof/grunt-gapreload/issues"
-	},
-	"peerDependencies": {
-		"grunt": "~0.4.2",
-		"grunt-concurrent": "~0.4.2",
-		"grunt-contrib-watch": "~0.5.3",
-		"grunt-exec": "~0.4.2"
-	},
-	"dependencies": {
-		"register-grunt-sub-tasks": "fingerproof/register-grunt-sub-tasks"
-	}
+  "name": "grunt-gapreload",
+  "version": "1.0.0",
+  "description": "A Grunt tasks for the Cordova/PhoneGap GapReload plugin.",
+  "keywords": ["grunt", "cordova", "phonegap", "live", "reload", "GapReload"],
+  "author": "Sebastien Pittion (https://twitter.com/fingerproof)",
+  "license": "MIT",
+  "homepage": "https://github.com/fingerproof/grunt-gapreload",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fingerproof/grunt-gapreload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fingerproof/grunt-gapreload/issues"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-exec": "~0.4.5"
+  },
+  "dependencies": {
+    "register-grunt-sub-tasks": "fingerproof/register-grunt-sub-tasks"
+  }
 }

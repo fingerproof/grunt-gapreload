@@ -9,7 +9,7 @@ A Grunt tasks for the Cordova/PhoneGap [GapReload][GapReload] plugin.
 2. Install the [Apache Cordova][Cordova] 3 CLI: `$ npm install -g cordova` (you may need to use `sudo`).
 3. `cd` into your project's root directory.
 4. Create a *package.json* (for example using `$ npm init`).
-5. Execute `$ npm install fingerproof/grunt-gapreload --save-dev`.
+5. Execute `$ npm install grunt-gapreload --save-dev`.
 6. [Create][Cordova CLI] a Cordova project: `$ cordova create <path> <id> <name>`.
 7. Add the platforms you need : `$ cd <path> && cordova platforms add <platforms>`.
 
@@ -25,20 +25,20 @@ Then the only thing you really need to do is to create a file named *Gruntfile.j
 
 ```javascript
 module.exports = function (grunt) {
-	grunt.initConfig({
-		watch: {
-			gapreload: {
-				files: [
-					"cordova/merges/**/*",
-					"cordova/www/**/*"
-				],
-				tasks: "gapreload-prepare",
-				options: { livereload: true }
-			}
-		}
-	});
-	grunt.loadNpmTasks("grunt-contrib-watch");
-	grunt.loadNpmTasks("grunt-gapreload");
+  grunt.initConfig({
+    watch: {
+      gapreload: {
+        files: [
+          'cordova/merges/**/*',
+          'cordova/www/**/*'
+        ],
+        tasks: 'gapreload-prepare',
+        options: { livereload: true }
+      }
+    }
+  });
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-gapreload');
 };
 ```
 
@@ -50,20 +50,20 @@ You can configure the task by adding some options to your `grunt.initConfig` cal
 
 ```javascript
 gapreload: {
-	options: {
-		// "cordova working directory", where the Cordova project is located
-		cwd: "cordova",
-		// some platforms names to delegate to the Cordova `prepare` command
-		// can be an array of names or a string containing a single name
-		// a falsy value mean (or an empty array) means all installed
-		platforms: undefined,
-		// see the GapReload Cordova/PhoneGap plugin documentation
-		// for more informations about the variables below
-		SERVER_HOSTNAME: undefined,
-		SERVER_PORT: 8000,
-		LIVERELOAD_HOSTNAME: undefined,
-		LIVERELOAD_PORT: 35729
-	}
+  options: {
+    // "cordova working directory", where the Cordova project is located
+    cwd: 'cordova',
+    // some platforms names to delegate to the Cordova `prepare` command
+    // can be an array of names or a string containing a single name
+    // a falsy value mean (or an empty array) means all installed
+    platforms: undefined,
+    // see the GapReload Cordova/PhoneGap plugin documentation
+    // for more informations about the variables below
+    SERVER_HOST: undefined,
+    SERVER_PORT: 8000,
+    LIVERELOAD_HOST: undefined,
+    LIVERELOAD_PORT: 35729
+  }
 }
 ```
 
